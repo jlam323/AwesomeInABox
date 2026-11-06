@@ -19,7 +19,7 @@ export default function Navbar() {
     { label: 'Home', href: '#home' },
     { label: 'Gallery', href: '#gallery' },
     { label: 'Our Story', href: '#story' },
-    { label: 'Menu & Flavours', href: '#menu' },
+    { label: 'Menu', href: '#menu' },
     { label: 'FAQ', href: '#faq' },
   ];
 
@@ -40,7 +40,7 @@ export default function Navbar() {
 
         <div className="site-navbar__actions">
           <a href="#connect" className="btn-primary btn-primary--sm">
-            <span>Contact</span>
+            <span>Contact Us</span>
           </a>
 
           <button
@@ -67,20 +67,6 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <div className="mobile-menu__footer">
-              <a
-                href={BRAND_INFO.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-              >
-                Follow @awesomeinabox
-              </a>
-              <a href="#connect" className="btn-primary" onClick={handleNavClick}>
-                <Sparkles size={16} />
-                Request a Quote
-              </a>
-            </div>
           </div>
         </div>
       )}

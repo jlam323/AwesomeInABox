@@ -113,7 +113,7 @@
 }
 
 /* Foreground Grid: Left Content + Right Carousel Controls */
-.hero-grid {
+.hero-section .hero-grid {
   position: relative;
   z-index: 3;
   width: 100%;
@@ -123,8 +123,7 @@
   grid-template-columns: minmax(300px, 420px) 1fr;
   gap: 32px;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 16px;
+  padding: 20px 24px 16px;
 }
 
 .hero-content {
@@ -205,13 +204,16 @@
 
 .hero-carousel__bottom-bar {
   width: 100%;
-  max-width: 680px;
+  max-width: 500px;
+  margin-left: auto;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: 14px;
 }
 
 .hero-carousel__caption {
+  width: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -253,7 +255,6 @@
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
-  padding-right: 6px;
 }
 
 .hero-carousel__dot {
@@ -273,7 +274,7 @@
 }
 
 @media (max-width: 1024px) {
-  .hero-grid {
+  .hero-section .hero-grid {
     grid-template-columns: 1fr;
   }
 
@@ -300,6 +301,11 @@
 
   .hero-carousel__nav-arrows {
     left: 0;
+  }
+
+  .hero-carousel__bottom-bar {
+    margin-left: 0;
+    align-items: center;
   }
 
   .hero-carousel__dots {
