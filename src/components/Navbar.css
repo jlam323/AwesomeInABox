@@ -23,6 +23,38 @@
   gap: 20px;
 }
 
+.site-navbar__left {
+  display: flex;
+  align-items: center;
+}
+
+.site-navbar__logo {
+  display: inline-flex;
+  align-items: center;
+  max-width: 0;
+  opacity: 0;
+  margin-right: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: max-width 0.3s ease, opacity 0.3s ease, margin-right 0.3s ease, transform 0.3s ease;
+}
+
+.site-navbar__logo--visible {
+  max-width: 80px;
+  opacity: 1;
+  margin-right: 14px;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.site-navbar__logo img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .site-navbar__links {
   display: flex;
   align-items: center;
