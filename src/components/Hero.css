@@ -1,0 +1,314 @@
+.hero-section {
+  position: relative;
+  padding: 120px 0 36px;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background: #fdf8f3;
+}
+
+.hero-ambient {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-ambient--one {
+  width: 380px;
+  height: 380px;
+  background: rgba(201, 100, 117, 0.14);
+  top: -80px;
+  left: 12%;
+}
+
+.hero-ambient--two {
+  width: 340px;
+  height: 340px;
+  background: rgba(200, 125, 85, 0.14);
+  bottom: 40px;
+  left: -90px;
+}
+
+/* Full-Bleed Background Carousel (Below Header to Bottom of Section) */
+.hero-carousel {
+  position: absolute;
+  top: 78px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.hero-carousel__viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fdf8f3;
+}
+
+.hero-carousel__slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 78%;
+  opacity: 0;
+  transition: opacity 0.75s ease;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 6%,
+    rgba(0, 0, 0, 0.82) 14%,
+    #000 22%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 6%,
+    rgba(0, 0, 0, 0.82) 14%,
+    #000 22%
+  );
+}
+
+.hero-carousel__slide--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-carousel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.02);
+  transition: transform 5s ease-out;
+}
+
+.hero-carousel__slide--active .hero-carousel__img {
+  transform: scale(1);
+}
+
+/* Smooth Left-Side Fade into the Cream Background */
+.hero-carousel__left-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #fdf8f3 0%,
+    #fdf8f3 20%,
+    rgba(253, 248, 243, 0.9) 26%,
+    rgba(253, 248, 243, 0.45) 33%,
+    rgba(253, 248, 243, 0.1) 39%,
+    rgba(253, 248, 243, 0) 44%
+  );
+}
+
+/* Foreground Grid: Left Content + Right Carousel Controls */
+.hero-grid {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1560px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) 1fr;
+  gap: 32px;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 16px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 4px;
+}
+
+.hero-logo-wrap {
+  width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-logo-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(38, 24, 21, 0.1));
+}
+
+.hero-lead {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--text-espresso);
+  max-width: 410px;
+  margin-bottom: 4px;
+  text-shadow: 0 1px 12px rgba(253, 248, 243, 0.9);
+}
+
+/* Right Side Controls & Caption Overlay */
+.hero-carousel__controls-area {
+  position: relative;
+  height: 100%;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.hero-carousel__nav-arrows {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.hero-carousel__arrow {
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--text-espresso);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(22, 12, 10, 0.18);
+  transition: all 0.2s ease;
+}
+
+.hero-carousel__arrow:hover {
+  background: #fff;
+  transform: scale(1.06);
+}
+
+.hero-carousel__bottom-bar {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero-carousel__caption {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  background: rgba(26, 15, 13, 0.56);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  box-shadow: 0 16px 38px rgba(18, 10, 8, 0.28);
+}
+
+.hero-carousel__eyebrow {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffd166;
+  margin-bottom: 4px;
+}
+
+.hero-carousel__title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.hero-carousel__subtitle {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.hero-carousel__dots {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-right: 6px;
+}
+
+.hero-carousel__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 2px 6px rgba(22, 12, 10, 0.25);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.hero-carousel__dot--active {
+  width: 30px;
+  background: var(--accent-rose);
+}
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-carousel__slide {
+    width: 100%;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .hero-carousel__left-fade {
+    background: linear-gradient(
+      180deg,
+      #fdf8f3 0%,
+      rgba(253, 248, 243, 0.94) 38%,
+      rgba(253, 248, 243, 0.35) 68%,
+      rgba(253, 248, 243, 0.1) 100%
+    );
+  }
+
+  .hero-carousel__controls-area {
+    min-height: 320px;
+    align-items: center;
+  }
+
+  .hero-carousel__nav-arrows {
+    left: 0;
+  }
+
+  .hero-carousel__dots {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding-top: 112px;
+  }
+}
